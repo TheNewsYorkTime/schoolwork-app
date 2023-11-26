@@ -18,8 +18,8 @@ app.use(_express["default"].urlencoded({
   extended: false
 }));
 app.use((0, _cookieParser["default"])());
-app.use(_express["default"]["static"](_path["default"].join(__dirname, "..", "..", "frontend", "build")));
 app.use("/api", _api["default"]);
+app.use(_express["default"]["static"](_path["default"].join(__dirname, "..", "..", "frontend", "build")));
 app.get("/", function (req, res, next) {
   if (false) {
     res.redirect("/login");
