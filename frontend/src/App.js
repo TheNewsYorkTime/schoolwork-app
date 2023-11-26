@@ -1,18 +1,33 @@
 import "./App.css";
 import Content from "./Content"
+import { useState } from "react";
 
-
+const getSite = async (event, url, setData) => {
+	if (event.key === "Enter") {
+		const encodedURL = encodeURIComponent(url);
+		const data = await (await fetch(`/api?url=${encodedURL}`)).text();
+		console.log(data);
+		setData(data);
+	}
+};
 
 function App() {
+  const [url, setURL] = useState("");
+	const [data, setData] = useState("");
   return (
 		<div id="app">
 			<header>
 				<h1>Welcome the the proxy</h1>
 			</header>
-			<p>
-				Enter a url in the input box.
-			</p>
-			<Content />
+			<p>Enter a url in the input box. Then press enter.</p>
+			<input
+				type="text"
+				value={url}
+				onChange={(e) => setURL(e.target.value)}
+				onKeyDown={(e) => getSite(e, url, setData)}
+			></input>
+      {console.log(data)}
+			<Content data={data} />
 		</div>
 	);
 }
