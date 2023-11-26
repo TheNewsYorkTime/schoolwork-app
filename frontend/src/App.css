@@ -36,3 +36,13 @@ a {
     transform: rotate(360deg);
   }
 }
+
+#content {
+  border: 2px solid grey;
+  width: fit-content;
+  margin: auto;
+  margin-top: auto;
+  padding: 1em;
+  margin-top: 0.5em;
+  border-radius: 0.25em;
+}

@@ -26,8 +26,7 @@ function App() {
 				onChange={(e) => setURL(e.target.value)}
 				onKeyDown={(e) => getSite(e, url, setData)}
 			></input>
-			{console.log(data)}
-			<Content data={data} />
+      {data !== "" ? <Content data={data} />: ""} 
 		</div>
 	);
 }
