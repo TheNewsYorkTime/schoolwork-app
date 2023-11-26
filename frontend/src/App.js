@@ -1,6 +1,6 @@
-import "./App.css";
-import Content from "./Content"
 import { useState } from "react";
+import "./App.css";
+import Content from "./Content";
 
 const getSite = async (event, url, setData) => {
 	if (event.key === "Enter") {
@@ -12,9 +12,9 @@ const getSite = async (event, url, setData) => {
 };
 
 function App() {
-  const [url, setURL] = useState("");
+	const [url, setURL] = useState("");
 	const [data, setData] = useState("");
-  return (
+	return (
 		<div id="app">
 			<header>
 				<h1>Welcome the the proxy</h1>
@@ -26,7 +26,7 @@ function App() {
 				onChange={(e) => setURL(e.target.value)}
 				onKeyDown={(e) => getSite(e, url, setData)}
 			></input>
-      {console.log(data)}
+			{console.log(data)}
 			<Content data={data} />
 		</div>
 	);

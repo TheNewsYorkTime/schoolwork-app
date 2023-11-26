@@ -1,10 +1,11 @@
+import parse from "html-react-parser";
+
 function Content(props) {
-    console.log(props.data);
 	return (
-			<div style={{ border: "1px solid grey" }}>
-                <h1>Webpage</h1>
-				{props.data}
-			</div>
+		<div style={{ border: "2px solid grey" }}>
+			<h1>Webpage</h1>
+			{parse(props.data)}
+		</div>
 	);
 }
 
