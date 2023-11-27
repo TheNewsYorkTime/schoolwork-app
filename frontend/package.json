@@ -3,19 +3,21 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"buffer": "^6.0.3",
 		"html-react-parser": "^5.0.6",
+		"process": "^0.11.10",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
 		"@babel/plugin-proposal-private-property-in-object": "^7.21.0",
+		"react-app-rewired": "^2.2.1",
 		"react-scripts": "^5.0.1"
 	},
 	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"start": "react-app-rewired start",
+		"build": "react-app-rewired build",
 		"prod": "env BUILD_PATH='../backend/dist/react' npm run build",
-		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {

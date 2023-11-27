@@ -39,10 +39,15 @@ a {
 
 #content {
   border: 2px solid grey;
-  width: fit-content;
+  width: 80%;
   margin: auto;
+  height: 100%;
   margin-top: auto;
   padding: 1em;
   margin-top: 0.5em;
   border-radius: 0.25em;
+}
+iframe {
+  width: 90%;
+  height: 100vw;
 }
