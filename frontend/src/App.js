@@ -6,7 +6,7 @@ const getSite = async (event, url, setData) => {
 	if (event.key === "Enter") {
 		const encodedURL = encodeURIComponent(url);
 		const data = await (await fetch(`/api?url=${encodedURL}`)).text();
-		console.log(data);
+		//console.log(data);
 		setData(data);
 	}
 };

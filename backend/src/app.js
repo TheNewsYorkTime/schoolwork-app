@@ -4,7 +4,7 @@ import path from "path";
 import logger from "morgan";
 import "dotenv/config";
 
-import apiRouter from "./routes/api";
+import apiRouter from "./routes/api.js";
 
 const app = express();
 const port = process.env.PORT || "3000";
@@ -15,10 +15,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/api", apiRouter);
-app.use(express.static(path.join(__dirname, "..", "..", "frontend", "build")));
+app.use(express.static(path.join(__dirname, ...staticPath)));
 
 app.get("/", (req, res, next) => {
-	
 	if (false) {res.redirect("/login")}
 	res.sendFile(
 		path.join(__dirname, ...staticPath, "index.html")

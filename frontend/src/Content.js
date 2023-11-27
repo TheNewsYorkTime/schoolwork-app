@@ -4,7 +4,8 @@ function Content(props) {
 	return (
 		<div id="content">
 			<h1>Webpage</h1>
-			{parse(props.data)}
+            <iframe title="loadedpage">{parse(props.data)}</iframe>
+			
 		</div>
 	);
 }
