@@ -7,6 +7,6 @@
 
 # production
 /frontend/build
-/backend/dist/
+/backend/dist
 
 /*/.env
