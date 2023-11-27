@@ -16,7 +16,8 @@
 	},
 	"scripts": {
 		"start": "react-app-rewired start",
-		"build": "react-app-rewired build",
+		"build": "npm run clean && react-app-rewired build",
+		"clean": "rm -rf ../backend/dist/react",
 		"prod": "env BUILD_PATH='../backend/dist/react' npm run build",
 		"eject": "react-scripts eject"
 	},
