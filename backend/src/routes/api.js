@@ -10,10 +10,11 @@ router.get("/", async (req, res, next) => {
 		url = new URL(url);
 		const response = await fetch(url);
 		console.log("sent!");
-		res.header = response.headers;
-		res.send(await response.text());
+		res.setHeader("content-type", response.headers.get("content-type"));
+		//res.setHeader("content-type", response.type);
+		res.send(await response.buffer());
 	} catch {
-		console.log("error");
+		console.log("Invalid url Entered: ", url);
 	}
 	console.log("hi");
 });

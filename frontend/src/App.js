@@ -2,11 +2,12 @@ import { useState } from "react";
 import "./App.css";
 import Content from "./Content";
 
-const getSite = async (event, url, setData) => {
+const getSite = async (event, url, setData, setMime) => {
 	if (event.key === "Enter") {
 		const encodedURL = encodeURIComponent(url);
-		const data = await (await fetch(`/api?url=${encodedURL}`)).text();
-		//console.log(data);
+		const response = await fetch(`/api?url=${encodedURL}`);
+		const data = await response.blob();
+		setMime(response.headers.get("content-type"));
 		setData(data);
 	}
 };
@@ -14,6 +15,7 @@ const getSite = async (event, url, setData) => {
 function App() {
 	const [url, setURL] = useState("");
 	const [data, setData] = useState("");
+	const [mime, setMime] = useState("text/html");
 	return (
 		<div id="app">
 			<header>
@@ -24,9 +26,9 @@ function App() {
 				type="text"
 				value={url}
 				onChange={(e) => setURL(e.target.value)}
-				onKeyDown={(e) => getSite(e, url, setData)}
+				onKeyDown={(e) => getSite(e, url, setData, setMime)}
 			></input>
-      {data !== "" ? <Content data={data} />: ""} 
+      		{data !== "" ? <Content data={data} mime={mime}/>: ""} 
 		</div>
 	);
 }

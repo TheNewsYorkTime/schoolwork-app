@@ -14,7 +14,7 @@ if (process.env.NODE_ENV == "development") app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use("/api", apiRouter);
+
 app.use(express.static(path.join(__dirname, ...staticPath)));
 
 app.get("/", (req, res, next) => {
@@ -23,6 +23,12 @@ app.get("/", (req, res, next) => {
 		path.join(__dirname, ...staticPath, "index.html")
 	); 
 });
+
+app.use("*", apiRouter);
+
+
+
+
 
 app.get("/login", (req, res, next) => {
 	res.redirect("/");
