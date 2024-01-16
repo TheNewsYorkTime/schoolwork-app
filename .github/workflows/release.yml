@@ -22,12 +22,13 @@ jobs:
 
     - name: Build
       run: |
-        cd frontend
+        cd backend
+        npm install
+        npm run build
+        cd ../frontend
         npm install
         npm run prod
         cd ../backend
-        npm install
-        npm run build
         mkdir prod
         mv dist prod
         cp package.json prod
