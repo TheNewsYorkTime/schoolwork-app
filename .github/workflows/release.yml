@@ -28,7 +28,8 @@ jobs:
         cd ../backend
         npm install
         npm run build
-        zip -r dist.zip dist
+        cp ../package.json dist
+        zip -r dist.zip dist/
 
     - name: Create Release
       id: create_release
