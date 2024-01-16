@@ -23,6 +23,7 @@ jobs:
         npm install
         npm run prod
         cd ../backend
+        npm install
         npm run build
         zip -r dist.zip dist
 
