@@ -24,15 +24,11 @@ app.get("/", (req, res, next) => {
 	); 
 });
 
-app.use("*", apiRouter);
-
-
-
-
-
 app.get("/login", (req, res, next) => {
 	res.redirect("/");
 	});
+
+app.use("*", apiRouter);
 
 app.listen(port, () => {
 	console.log("Started...");
