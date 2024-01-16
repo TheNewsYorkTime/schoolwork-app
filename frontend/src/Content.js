@@ -1,5 +1,5 @@
-import parse from "html-react-parser";
-import { Buffer } from 'buffer'
+//import parse from "html-react-parser";
+//import { Buffer } from 'buffer'
 
 function Content(props) {
 	const data = URL.createObjectURL(props.data);
